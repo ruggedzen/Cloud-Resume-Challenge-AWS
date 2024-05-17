@@ -160,8 +160,8 @@ resource "aws_cloudfront_distribution" "swnl_cdn" {
     minimum_protocol_version = "TLSv1.2_2021"
   }
 
-  depends_on = [ 
-    aws_acm_certificate.swnl_cert 
+  depends_on = [
+    aws_acm_certificate.swnl_cert
   ]
 }
 
