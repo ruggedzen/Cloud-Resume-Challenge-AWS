@@ -125,17 +125,17 @@ resource "aws_acm_certificate_validation" "swnl_cert_val" {
   validation_record_fqdns = [for record in aws_route53_record.swnl_cert_cname : record.fqdn]
 }
 
-#TODO: CloudFront Distro STILL BROKEN
+#TODO: CloudFront Distro
 resource "aws_cloudfront_distribution" "swnl_cdn" {
   origin {
     domain_name = aws_s3_bucket.swnl.bucket_regional_domain_name
     origin_id   = "sheepwithnolegs.com"
 
     custom_origin_config {
-      http_port = 80
-      https_port = 443
+      http_port              = 80
+      https_port             = 443
       origin_protocol_policy = "match-viewer"
-      origin_ssl_protocols = ["TLSv1", "TLSv1.1", "TLSv1.2"]
+      origin_ssl_protocols   = ["TLSv1", "TLSv1.1", "TLSv1.2"]
     }
   }
 
@@ -159,10 +159,12 @@ resource "aws_cloudfront_distribution" "swnl_cdn" {
     }
   }
 
-  price_class = "PriceClass_200"
+  price_class = "PriceClass_100"
 
   viewer_certificate {
-    acm_certificate_arn = aws_acm_certificate.swnl_cert.arn
+    acm_certificate_arn = aws_acm_certificate_validation.swnl_cert_val.certificate_arn
+    ssl_support_method  = "sni-only"
+    minimum_protocol_version = "TLSv1.2_2021"
   }
 }
 
