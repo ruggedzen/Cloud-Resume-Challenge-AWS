@@ -37,11 +37,9 @@ data "aws_iam_policy_document" "allow_read_all" {
 
 #Bucket Creation
 resource "aws_s3_bucket" "swnl" {
-  bucket = var.domain_name
+  bucket = local.domain_name
 
-  tags = {
-    Project = "CRC"
-  }
+  tags = local.common_tags
 
 }
 
@@ -72,21 +70,19 @@ resource "aws_s3_bucket_policy" "allow_read_all" {
 
 #R53 Zone
 resource "aws_route53_zone" "swnl_zone" {
-  name = var.domain_name
+  name = local.domain_name
 }
 
 #Get cert from ACM for sheepwithnolegs.com
 resource "aws_acm_certificate" "swnl_cert" {
-  domain_name       = var.domain_name
+  domain_name       = local.domain_name
   validation_method = "DNS"
 
   lifecycle {
     create_before_destroy = true
   }
 
-  tags = {
-    Project = "CRC"
-  }
+  tags = local.common_tags
 }
 
 #Create CNAME to auth ACM provided cert
@@ -109,7 +105,7 @@ resource "aws_route53_record" "swnl_cert_cname" {
 
 #Change Registered domain NS to Hosted Zone NS
 resource "aws_route53domains_registered_domain" "swnl_ns" {
-  domain_name = var.domain_name
+  domain_name = local.domain_name
 
   dynamic "name_server" {
     for_each = toset(aws_route53_zone.swnl_zone.name_servers)
@@ -129,13 +125,13 @@ resource "aws_acm_certificate_validation" "swnl_cert_val" {
 resource "aws_cloudfront_distribution" "swnl_cdn" {
   origin {
     domain_name = aws_s3_bucket.swnl.bucket_regional_domain_name
-    origin_id   = var.domain_name
+    origin_id   = local.domain_name
   }
 
   enabled             = true
   default_root_object = "index.html"
 
-  aliases = [var.domain_name]
+  aliases = [local.domain_name]
 
   default_cache_behavior {
     # Using the CachingOptomised managed policy ID:
@@ -143,7 +139,7 @@ resource "aws_cloudfront_distribution" "swnl_cdn" {
     cache_policy_id        = "658327ea-f89d-4fab-a63d-7e88639e58f6"
     allowed_methods        = ["GET", "HEAD"]
     cached_methods         = ["GET", "HEAD"]
-    target_origin_id       = var.domain_name
+    target_origin_id       = local.domain_name
   }
 
   restrictions {
@@ -168,7 +164,7 @@ resource "aws_cloudfront_distribution" "swnl_cdn" {
 #A record for CloudFront distro 
 resource "aws_route53_record" "swnl_cf_alias" {
   zone_id = aws_route53_zone.swnl_zone.zone_id
-  name    = var.domain_name
+  name    = local.domain_name
   type    = "A"
 
   alias {
