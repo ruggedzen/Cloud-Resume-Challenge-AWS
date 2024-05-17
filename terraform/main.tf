@@ -37,7 +37,7 @@ data "aws_iam_policy_document" "allow_read_all" {
 
 #Bucket Creation
 resource "aws_s3_bucket" "swnl" {
-  bucket = "sheepwithnolegs.com"
+  bucket = var.domain_name
 
   tags = {
     Project = "CRC"
@@ -47,7 +47,7 @@ resource "aws_s3_bucket" "swnl" {
 
 #Bucket Config
 #Enable static website
-resource "aws_s3_bucket_website_configuration" "sheepwithnolegs_site" {
+resource "aws_s3_bucket_website_configuration" "swnl_site" {
   bucket = aws_s3_bucket.swnl.id
 
   index_document {
@@ -72,12 +72,12 @@ resource "aws_s3_bucket_policy" "allow_read_all" {
 
 #R53 Zone
 resource "aws_route53_zone" "swnl_zone" {
-  name = "sheepwithnolegs.com"
+  name = var.domain_name
 }
 
 #Get cert from ACM for sheepwithnolegs.com
 resource "aws_acm_certificate" "swnl_cert" {
-  domain_name       = "sheepwithnolegs.com"
+  domain_name       = var.domain_name
   validation_method = "DNS"
 
   lifecycle {
@@ -109,7 +109,7 @@ resource "aws_route53_record" "swnl_cert_cname" {
 
 #Change Registered domain NS to Hosted Zone NS
 resource "aws_route53domains_registered_domain" "swnl_ns" {
-  domain_name = "sheepwithnolegs.com"
+  domain_name = var.domain_name
 
   dynamic "name_server" {
     for_each = toset(aws_route53_zone.swnl_zone.name_servers)
@@ -125,24 +125,17 @@ resource "aws_acm_certificate_validation" "swnl_cert_val" {
   validation_record_fqdns = [for record in aws_route53_record.swnl_cert_cname : record.fqdn]
 }
 
-#TODO: CloudFront Distro
+#CloudFront Distro
 resource "aws_cloudfront_distribution" "swnl_cdn" {
   origin {
     domain_name = aws_s3_bucket.swnl.bucket_regional_domain_name
-    origin_id   = "sheepwithnolegs.com"
-
-    custom_origin_config {
-      http_port              = 80
-      https_port             = 443
-      origin_protocol_policy = "match-viewer"
-      origin_ssl_protocols   = ["TLSv1", "TLSv1.1", "TLSv1.2"]
-    }
+    origin_id   = var.domain_name
   }
 
   enabled             = true
   default_root_object = "index.html"
 
-  aliases = ["sheepwithnolegs.com"]
+  aliases = [var.domain_name]
 
   default_cache_behavior {
     # Using the CachingOptomised managed policy ID:
@@ -150,7 +143,7 @@ resource "aws_cloudfront_distribution" "swnl_cdn" {
     cache_policy_id        = "658327ea-f89d-4fab-a63d-7e88639e58f6"
     allowed_methods        = ["GET", "HEAD"]
     cached_methods         = ["GET", "HEAD"]
-    target_origin_id       = "sheepwithnolegs.com"
+    target_origin_id       = var.domain_name
   }
 
   restrictions {
@@ -162,16 +155,20 @@ resource "aws_cloudfront_distribution" "swnl_cdn" {
   price_class = "PriceClass_100"
 
   viewer_certificate {
-    acm_certificate_arn = aws_acm_certificate_validation.swnl_cert_val.certificate_arn
-    ssl_support_method  = "sni-only"
+    acm_certificate_arn      = aws_acm_certificate_validation.swnl_cert_val.certificate_arn
+    ssl_support_method       = "sni-only"
     minimum_protocol_version = "TLSv1.2_2021"
   }
+
+  depends_on = [ 
+    aws_acm_certificate.swnl_cert 
+  ]
 }
 
-#TODO: A record for CloudFront distro 
+#A record for CloudFront distro 
 resource "aws_route53_record" "swnl_cf_alias" {
   zone_id = aws_route53_zone.swnl_zone.zone_id
-  name    = "sheepwithnolegs.com"
+  name    = var.domain_name
   type    = "A"
 
   alias {
