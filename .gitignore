@@ -1,9 +1,8 @@
 .DS_Store
 .git
 .terraform/
-terraform.tfstate
 terraform.tfstate.backup
-Terraform/terraform.tfstate
+terraform/terraform.tfstate
 .terraform.tfstate.lock.info
 .tfvars
 .log
