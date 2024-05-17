@@ -107,12 +107,22 @@ resource "aws_route53_record" "swnl_cert_cname" {
   zone_id         = aws_route53_zone.swnl_zone.zone_id
 }
 
+#Change Registered domain NS to Hosted Zone NS
+resource "aws_route53domains_registered_domain" "swnl_ns" {
+  domain_name = "sheepwithnolegs.com"
+
+  dynamic "name_server" {
+    for_each = toset(aws_route53_zone.swnl_zone.name_servers)
+    content {
+      name = name_server.value
+    }
+  }
+}
 #Validate ACM Cert
 resource "aws_acm_certificate_validation" "swnl_cert_val" {
   certificate_arn         = aws_acm_certificate.swnl_cert.arn
   validation_record_fqdns = [for record in aws_route53_record.swnl_cert_cname : record.fqdn]
 }
-
 
 #TODO: CloudFront Distro
 #TODO: A record for CloudFront distro
