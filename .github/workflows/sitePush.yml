@@ -2,6 +2,8 @@ name: Deploy
 
 on:
   push:
+    branches:
+      - main
 
 jobs:
   deploy:
@@ -18,7 +20,7 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1 
     
-    - name: Sync resume to S3 bucket
+    - name: Sync site to S3 bucket
       run: aws s3 sync ./site s3://$AWS_S3_BUCKET --follow-symlinks
       env:
         AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
