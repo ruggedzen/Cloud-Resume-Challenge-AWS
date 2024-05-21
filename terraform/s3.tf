@@ -2,6 +2,7 @@
 resource "aws_s3_bucket" "swnl" {
   bucket = var.domain_name
   tags   = local.common_tags
+  force_destroy = true
 }
 
 #Bucket Config
