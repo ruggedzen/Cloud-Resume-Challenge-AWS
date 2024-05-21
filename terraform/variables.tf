@@ -3,7 +3,7 @@ variable "domain_name" {
   type    = string
 }
 variable "cli_profile" {
-  default = "iamadmin-general"
+  default = "swnl_tf_test"
   type    = string
 }
 variable "aws_region" {

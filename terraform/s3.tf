@@ -1,7 +1,7 @@
 #Bucket Creation
 resource "aws_s3_bucket" "swnl" {
   bucket = var.domain_name
-  tags = local.common_tags
+  tags   = local.common_tags
 }
 
 #Bucket Config
