@@ -26,8 +26,9 @@ jobs:
 
       # Upload a file to AWS s3
       - name:  Copy index.html to s3
-        run: aws s3 sync ./site s3://${{vars.BUCKET_NAME}} --follow-symlinks
+        run: aws s3 cp ./site s3://${{ vars.BUCKET_NAME }}/
       
       #Invalidate CloudFront Distro
       - name: Invalidate CloudFront
         run: aws cloudfront create-invalidation --distribution-id ${{ vars.DISTRIBUTION_ID }} --paths "/"
+
