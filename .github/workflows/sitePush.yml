@@ -22,11 +22,11 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::381492093988:role/github_action_deploy_role
           role-session-name: githubactionsession
-          aws-region: ${{ env.AWS_REGION }}
+          aws-region: us-east-1
 
       # Upload a file to AWS s3
       - name:  Copy index.html to s3
         run: |
-          aws s3 cp ./site s3://${{ env.BUCKET_NAME }}/
+          aws s3 cp ./site s3://${{ secrets.AWS_S3_BUCKET }}/
 
 #test run
