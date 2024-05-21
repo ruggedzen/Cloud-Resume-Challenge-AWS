@@ -28,3 +28,5 @@ jobs:
       - name:  Copy index.html to s3
         run: |
           aws s3 cp ./site s3://${{ env.BUCKET_NAME }}/
+
+#test run
