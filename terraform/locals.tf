@@ -1,5 +1,5 @@
 locals {
-    common_tags = {
-        Project = "CRC"
-    }
+  common_tags = {
+    Project = "CRC"
+  }
 }

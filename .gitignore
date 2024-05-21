@@ -1,5 +1,6 @@
 .DS_Store
 .git
+.vscode
 .terraform/
 terraform.tfstate.backup
 terraform/terraform.tfstate
