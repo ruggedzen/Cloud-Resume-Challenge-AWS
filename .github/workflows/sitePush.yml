@@ -3,7 +3,7 @@ name: Deploy to test env
 on:
   push:
     branches:
-      - dev
+      - main
 
 # permission can be added at job level or workflow level
 permissions:
@@ -20,7 +20,7 @@ jobs:
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v3
         with:
-          role-to-assume: arn:aws:iam::381492093988:role/github_action_deploy_role
+          role-to-assume: arn:aws:iam::339713009188:role/GithubActions-WebIdentity-Role
           role-session-name: githubactionsession
           aws-region: ${{ vars.AWS_REGION }}
 

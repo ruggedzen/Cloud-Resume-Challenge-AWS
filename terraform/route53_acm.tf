@@ -35,9 +35,6 @@ resource "aws_route53_record" "swnl_cert_cname" {
 
 #Change registered domain NS to Hosted Zone NS | Domain will be moved to prod
 resource "aws_route53domains_registered_domain" "swnl_ns" {
-  #points to the domain registered in original account
-  provider = aws.dns
-
   domain_name = var.domain_name
 
   dynamic "name_server" {
