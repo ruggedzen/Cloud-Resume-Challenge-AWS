@@ -1,11 +1,11 @@
 .DS_Store
-
 .git
 .vscode/
 .terraform/
 terraform.tfstate.backup
-terraform/terraform.tfstate
-.terraform.tfstate.lock.info
+terraform/frontend/terraform.tfstate
+terraform/frontend/.terraform.tfstate.lock.info
 .tfvars
 .log
 site/index.html.old
+.vscode
