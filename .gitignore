@@ -9,4 +9,3 @@ terraform/frontend/.terraform.tfstate.lock.info
 .log
 site/index.html.old
 .vscode
-testing something
