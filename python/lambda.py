@@ -5,22 +5,23 @@ def lambda_handler(event: any, context: any):
     table_name = "visitor_table"
     table = dynamodb.Table(table_name)
 
-    visit_count = 0
+    if table.item_count == 0:
+        table.put_item(ItemItem={"visitor_count": "N" : "0"})
+    else:
+        response = table.update_item(
+            Key={"visitor_count":"N"},
+            UpdateExpression="ADD #cnt :val",
+            ExpressionAttributeNames={"#cnt": "count"},   
+            ExpressionAttributeValues={':val': 1},
+            ReturnValues="UPDATED_NEW"
+        )
 
-    response = table.get_item(
-        Key={
-            "visitor_count":0
-        }
+    visitorCountID - response["Attributes"]["count"]
+
+    table.put_item(
+        Item={}
     )
-    if "Item" in response:
-        visit_count = response["Item"]["visitor_count"]
 
-    visit_count += 1
-
-    table.put_item(Item={"visitor_count":visit_count})
-                         
-    return "Visit count {}".format(visit_count)
-                         
 
 
 
