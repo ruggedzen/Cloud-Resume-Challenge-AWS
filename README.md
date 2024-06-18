@@ -24,6 +24,9 @@
     - Route 53
     - AWS Organizations
     - AWS Identity Center
+    - Lambda
+    - DynamoDB
+    - API Gateway
 
 - IaC
      - Terraform
