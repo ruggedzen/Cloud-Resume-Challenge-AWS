@@ -6,6 +6,8 @@
   - [x] AWS Certified Cloud Practitioner
   - [x] AWS Certified Solutions Architect - Associate
 - [x] HTML/CSS
+- [x] Use AWS Organizations to create and manage test, prod, and management accounts
+- [x] Create temporary credentials for AWS access via the AWS Identity Center
 - [x] S3 static website hosting
 - [x] HTTPS
 - [x] Custom DNS domain name
