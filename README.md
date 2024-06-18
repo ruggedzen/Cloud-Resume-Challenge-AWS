@@ -1,20 +1,27 @@
 # Cloud Resume Challenge-AWS
- Hello! This is my attempt at the Cloud Resume Challenge in AWS. The backend components of the project are still in progress but I anticipate to have them completed soon. Here is a high-level overview of what the project looks like so far.
+ Hello! This is my attempt at the Cloud Resume Challenge in AWS. The backend components of the project are still in progress but I anticipate to have them completed soon. Here is a high-level overview of the project so far.
 
-## Completed:
-- [x] Front-end HTML/CSS
-- [x] S3 website hosting
-- [x] CloudFront deployed
-- [x] HTTPS certificate configured
-- [x] Front-end infrastructure as IaC in Terraform
-- [x] Code deployment to S3 via GitHub Actions
-- [x] Python code in Lambda to update visitor count value in Dynamodb
-
-## Tasks Pending:
-- [ ] API Gateway configuration
-- [ ] Visitor counter infrastructure as IaC in Terraform
-- [ ] "Smoke tests" via Github actions
-- [ ] Monitoring/Observability   
+## Challenge tasks:
+- [x] Certification
+  - [x] AWS Certified Cloud Practitioner
+  - [x] AWS Certified Solutions Architect - Associate
+- [x] HTML/CSS
+- [x] S3 static website hosting
+- [x] HTTPS
+- [x] Custom DNS domain name
+- [ ] Javascript visitor counter
+- [ ] API Gateway
+- [ ] Python 
+  - [ ] API Lambda Function
+  - [x] Update DynamoDB table Lambda Function
+  - [ ] Testing
+- [ ] Infrastructure as Code (Terraform)
+  - [x] Front-end infrastructure
+  - [ ] Back-end infrastructure (Visitor counter)
+- [ ] CI/CD
+  - [x] Front-end
+  - [ ] Back-end
+- [ ] Blog Post
 
 ## Services/Tools used:
 - AWS Services:
@@ -27,10 +34,8 @@
     - Lambda
     - DynamoDB
     - API Gateway
-
 - IaC
      - Terraform
-
 - Code Deployment
     - Github/Github Actions
 
