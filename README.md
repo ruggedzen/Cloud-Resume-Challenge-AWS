@@ -17,6 +17,7 @@
   - [ ] API Lambda Function
   - [x] Update DynamoDB table Lambda Function
   - [ ] Testing
+- [x] Setup DynamoDB table
 - [ ] Infrastructure as Code (Terraform)
   - [x] Front-end infrastructure
   - [ ] Back-end infrastructure (Visitor counter)
