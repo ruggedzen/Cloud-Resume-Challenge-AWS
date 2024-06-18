@@ -4,7 +4,7 @@
 ## Completed:
 - Front-end HTML/CSS
 - S3 website hosting
-- CloudFront Deployed
+- CloudFront deployed
 - HTTPS certificate configured
 - Front-end infrastructure as IaC in Terraform
 - Code deployment to S3 via GitHub Actions
@@ -22,7 +22,7 @@
     - CloudFront
     - ACM
     - Route 53
-    - AWS Orginizations
+    - AWS Organizations
     - AWS Identity Center
 
 - IaC
