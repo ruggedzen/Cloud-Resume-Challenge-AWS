@@ -14,8 +14,7 @@
 - [ ] Javascript visitor counter
 - [ ] API Gateway
 - [ ] Python 
-  - [ ] API Lambda Function
-  - [x] Update DynamoDB table Lambda Function
+  - [x] Lambda Function
   - [ ] Testing
 - [x] Setup DynamoDB table
 - [ ] Infrastructure as Code (Terraform)
