@@ -12,7 +12,7 @@
 - [x] HTTPS
 - [x] Custom DNS domain name
 - [ ] Javascript visitor counter
-- [ ] API Gateway
+- [x] API Gateway
 - [ ] Python 
   - [x] Lambda Function
   - [ ] Testing
