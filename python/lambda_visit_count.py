@@ -20,5 +20,5 @@ def lambda_handler(event: any, context: any):
         }
     }
     
-    #return lambdaResponse
-    return f"count:{response["Attributes"]["num"]["N"]}"
+    return lambdaResponse
+    #return f"count:{response["Attributes"]["num"]["N"]}"
