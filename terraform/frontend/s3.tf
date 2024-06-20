@@ -1,10 +1,11 @@
-#Bucket Creation
+#Site Bucket Creation
 resource "aws_s3_bucket" "swnl" {
   bucket = var.domain_name
+  force_destroy = true
   tags   = local.common_tags
 }
 
-#Bucket Config
+#Static Site Bucket Config
 #Enable static website
 resource "aws_s3_bucket_website_configuration" "swnl_site" {
   bucket = aws_s3_bucket.swnl.id
