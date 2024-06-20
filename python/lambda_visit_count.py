@@ -1,9 +1,9 @@
-import boto3
+import boto3, json
+
+dynamodb = boto3.client("dynamodb")
+table = "swnl_site_metrics"
 
 def lambda_handler(event: any, context: any):
-    dynamodb = boto3.client("dynamodb")
-    table = "swnl_site_metrics"
-    
     response = dynamodb.update_item(
         TableName = table,
         Key={'metric': {'S':'view_count'}},
@@ -11,4 +11,14 @@ def lambda_handler(event: any, context: any):
         ExpressionAttributeValues={':val':{"N" : "1"}},
         ReturnValues="UPDATED_NEW"
     )
-                         
+    
+    lambdaResponse = {
+        'statusCode': json.dumps(response["ResponseMetadata"]["HTTPStatusCode"]),
+        'body': json.dumps(response["Attributes"]["num"]["N"]),
+        'headers' : {
+            'Access-Control-Allow-Origin' : '*'
+        }
+    }
+    
+    #return lambdaResponse
+    return f"count:{response["Attributes"]["num"]["N"]}"
