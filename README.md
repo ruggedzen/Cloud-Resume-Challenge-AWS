@@ -12,10 +12,9 @@
 - [x] HTTPS
 - [x] Custom DNS domain name
 - [ ] Javascript visitor counter
-- [ ] API Gateway
+- [x] API Gateway
 - [ ] Python 
-  - [ ] API Lambda Function
-  - [x] Update DynamoDB table Lambda Function
+  - [x] Lambda Function
   - [ ] Testing
 - [x] Setup DynamoDB table
 - [ ] Infrastructure as Code (Terraform)
