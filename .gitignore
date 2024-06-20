@@ -7,5 +7,4 @@ terraform/frontend/terraform.tfstate
 terraform/frontend/.terraform.tfstate.lock.info
 .tfvars
 .log
-site/index.html.old
 .vscode

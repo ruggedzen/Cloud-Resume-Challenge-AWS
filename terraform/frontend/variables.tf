@@ -3,7 +3,7 @@ variable "domain_name" {
   type    = string
 }
 variable "cli_profile" {
-  default = "swnl_test"
+  default = "swnl_prod"
   type    = string
 }
 variable "aws_region" {
