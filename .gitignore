@@ -3,8 +3,8 @@
 .vscode/
 .terraform/
 terraform.tfstate.backup
-terraform/frontend/terraform.tfstate
-terraform/frontend/.terraform.tfstate.lock.info
+terraform/terraform.tfstate
+terraform/.terraform.tfstate.lock.info
 .tfvars
 .log
 .vscode
