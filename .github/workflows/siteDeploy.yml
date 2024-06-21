@@ -27,9 +27,20 @@ jobs:
       # Upload a file to AWS s3
       - name:  Copy index.html to s3
         run: aws s3 sync ./site s3://${{ vars.BUCKET_NAME }}/
+
   InvalidateCloudFront:
     needs: S3PackageUpload
     runs-on: ubuntu-latest
     steps:
-      - name: Invalidate CloudFront
+      - name: Git clone the repository
+        uses: actions/checkout@v4
+        
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::339713009188:role/GithubActions-WebIdentity-Role
+          role-session-name: githubactionsession
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: invalidate CloudFront
         run: aws cloudfront create-invalidation --distribution-id ${{ vars.DISTRIBUTION_ID }} --paths '/*'

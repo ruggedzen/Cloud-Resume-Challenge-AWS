@@ -1,4 +1,4 @@
-name: Deploy site to S3
+name: Deploy python payload to Lambda
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
   PythonPackageUpload:
     runs-on: ubuntu-latest
     steps:
-      - name: Git clone the repository
+      - name: git clone the repository
         uses: actions/checkout@v4
 
       - name: configure aws credentials
@@ -24,7 +24,7 @@ jobs:
           role-session-name: githubactionsession
           aws-region: ${{ vars.AWS_REGION }}
 
-      - name: default deploy
+      - name: code deploy
         uses: appleboy/lambda-action@v0.2.0
         with:
           function_name: crc_lambda
