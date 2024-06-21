@@ -5,6 +5,7 @@
 terraform.tfstate.backup
 terraform/terraform.tfstate
 terraform/.terraform.tfstate.lock.info
+terraform/.terraform.lock.hcl
 .tfvars
 .log
 .vscode
