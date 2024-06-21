@@ -27,6 +27,6 @@ jobs:
       - name: code deploy
         uses: appleboy/lambda-action@v0.2.0
         with:
-          function_name: crc_lambda
+          function_name: ${{ vars.LAMBDA_NAME }}
           source: lambda/lambda_function.py
 
