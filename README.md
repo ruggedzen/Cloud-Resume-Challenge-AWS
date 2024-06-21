@@ -20,10 +20,9 @@
 - [x] Infrastructure as Code (Terraform)
   - [x] Front-end infrastructure
   - [x] Back-end infrastructure (Visitor counter)
-- [ ] CI/CD
+- [x] CI/CD
   - [x] Front-end
-  - [ ] Back-end
-- [ ] Monitoring 
+  - [x] Back-end 
 - [ ] Blog Post
 
 ## Services/Tools used:
