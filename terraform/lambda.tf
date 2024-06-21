@@ -17,6 +17,8 @@ resource "aws_lambda_function" "swnl_lambda" {
   source_code_hash = data.archive_file.swnl_lambda_code.output_base64sha256
   runtime          = "python3.12"
   handler          = "lambda_function.lambda_handler"
+
+  tags = local.common_tags
 }
 
 resource "aws_lambda_permission" "lambda_permission" {
