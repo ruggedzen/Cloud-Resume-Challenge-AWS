@@ -15,7 +15,7 @@ data "archive_file" "dummy_code" {
 
 resource "aws_lambda_function" "swnl_lambda" {
   filename         = "${data.archive_file.dummy_code.output_path}"
-  function_name    = "crc_lambda"
+  function_name    = var.func_name
   role             = aws_iam_role.swnl_lambda_role.arn
   runtime          = "python3.12"
   handler          = "lambda_function.lambda_handler"

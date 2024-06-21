@@ -14,3 +14,7 @@ variable "dyn_table" {
   default = "swnl_stats"
   type    = string
 }
+variable "func_name" {
+  default = "crc_lambda"
+  type    = string
+}
