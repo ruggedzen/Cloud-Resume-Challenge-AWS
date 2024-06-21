@@ -4,5 +4,5 @@ async function updateCounter() {
     let data = await response.json();
     counter.innerHTML = `${data}`;
 }
-
+//test
 updateCounter();
