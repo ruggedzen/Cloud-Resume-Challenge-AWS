@@ -23,6 +23,7 @@
 - [ ] CI/CD
   - [x] Front-end
   - [ ] Back-end
+- [ ] Monitoring 
 - [ ] Blog Post
 
 ## Services/Tools used:
