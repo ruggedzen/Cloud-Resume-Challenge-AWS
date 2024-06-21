@@ -11,18 +11,19 @@
 - [x] S3 static website hosting
 - [x] HTTPS
 - [x] Custom DNS domain name
-- [ ] Javascript visitor counter
+- [x] Javascript visitor counter
 - [x] API Gateway
 - [ ] Python 
   - [x] Lambda Function
   - [ ] Testing
 - [x] Setup DynamoDB table
-- [ ] Infrastructure as Code (Terraform)
+- [x] Infrastructure as Code (Terraform)
   - [x] Front-end infrastructure
-  - [ ] Back-end infrastructure (Visitor counter)
+  - [x] Back-end infrastructure (Visitor counter)
 - [ ] CI/CD
   - [x] Front-end
   - [ ] Back-end
+- [ ] Monitoring 
 - [ ] Blog Post
 
 ## Services/Tools used:
