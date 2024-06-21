@@ -2,8 +2,8 @@ name: Deploy site to S3
 
 on:
   push:
-    branches:
-      - main
+    paths:
+      - 'site/**'
 
 
 permissions:
