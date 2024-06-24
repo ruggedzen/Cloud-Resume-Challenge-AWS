@@ -8,19 +8,17 @@ data "archive_file" "dummy_code" {
   type        = "zip"
   output_path = "lambda_function_payload.zip"
   source {
-    content = "hello"
+    content  = "hello"
     filename = "dummy.txt"
   }
 }
 
 resource "aws_lambda_function" "swnl_lambda" {
-  filename         = "${data.archive_file.dummy_code.output_path}"
-  function_name    = var.func_name
-  role             = aws_iam_role.swnl_lambda_role.arn
-  runtime          = "python3.12"
-  handler          = "lambda_function.lambda_handler"
-
-  tags = local.common_tags
+  filename      = data.archive_file.dummy_code.output_path
+  function_name = var.func_name
+  role          = aws_iam_role.swnl_lambda_role.arn
+  runtime       = "python3.12"
+  handler       = "lambda_function.lambda_handler"
 }
 
 resource "aws_lambda_permission" "lambda_permission" {

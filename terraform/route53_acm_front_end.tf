@@ -12,7 +12,6 @@ resource "aws_acm_certificate" "swnl_cert" {
     create_before_destroy = true
   }
 
-  tags = local.common_tags
 }
 
 #Create CNAME to auth ACM provided cert

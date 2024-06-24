@@ -7,6 +7,4 @@ resource "aws_dynamodb_table" "swnl_stats_table" {
     name = "metric"
     type = "S"
   }
-
-  tags = local.common_tags
 }

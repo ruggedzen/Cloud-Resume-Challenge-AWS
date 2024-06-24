@@ -13,7 +13,7 @@ data "aws_iam_policy_document" "allow_read_all" {
     ]
   }
 }
-
+#Execution role policy
 data "aws_iam_policy_document" "lambda_assume_role" {
   statement {
     effect = "Allow"
@@ -26,12 +26,10 @@ data "aws_iam_policy_document" "lambda_assume_role" {
     actions = ["sts:AssumeRole"]
   }
 }
-
+#Lambda policy for exectution role
 resource "aws_iam_policy" "swnl_lambda_policy" {
   name = "DynamoDBLambdaAccess"
 
-  # Terraform's "jsonencode" function converts a
-  # Terraform expression result to valid JSON syntax.
   policy = jsonencode({
     "Version" : "2012-10-17",
     "Statement" : [

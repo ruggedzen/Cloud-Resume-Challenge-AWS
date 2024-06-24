@@ -3,12 +3,13 @@ resource "aws_apigatewayv2_api" "swnl_api" {
   protocol_type = "HTTP"
 }
 
+#Default stage
 resource "aws_apigatewayv2_stage" "api_stage" {
   name        = "$default"
   api_id      = aws_apigatewayv2_api.swnl_api.id
   auto_deploy = true
 }
-
+#Lambda integration
 resource "aws_apigatewayv2_integration" "lambda_api_integration" {
   api_id                 = aws_apigatewayv2_api.swnl_api.id
   integration_type       = "AWS_PROXY"
@@ -16,7 +17,7 @@ resource "aws_apigatewayv2_integration" "lambda_api_integration" {
 
   integration_uri = aws_lambda_function.swnl_lambda.invoke_arn
 }
-
+#GET route to Lambda
 resource "aws_apigatewayv2_route" "api_route" {
   api_id    = aws_apigatewayv2_api.swnl_api.id
   route_key = "GET /crc_lambda"

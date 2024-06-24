@@ -2,7 +2,6 @@
 resource "aws_s3_bucket" "swnl" {
   bucket        = var.domain_name
   force_destroy = true
-  tags          = local.common_tags
 }
 
 #Static Site Bucket Config
