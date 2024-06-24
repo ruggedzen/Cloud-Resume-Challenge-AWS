@@ -1,10 +1,9 @@
-name: Deploy python payload to Lambda
+name: Deploy Python payload to Lambda
 
 on:
   push:
     paths:
       - 'lambda/**'
-      - 'terraform/lambda.tf'
 
 permissions:
   id-token: write   # This is required for requesting the JWT
@@ -17,7 +16,7 @@ jobs:
       - name: git clone the repository
         uses: actions/checkout@v4
 
-      - name: configure aws credentials
+      - name: configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::339713009188:role/GithubActions-WebIdentity-Role
