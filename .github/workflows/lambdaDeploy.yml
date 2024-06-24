@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'lambda/**'
+      - 'terraform/lambda.tf'
 
 permissions:
   id-token: write   # This is required for requesting the JWT

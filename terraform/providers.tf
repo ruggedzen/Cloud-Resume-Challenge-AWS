@@ -13,8 +13,7 @@ provider "aws" {
   profile = var.cli_profile
   default_tags {
     tags = {
-      Project        = "CRC",
-      awsApplication = "arn:aws:resource-groups:us-east-1:339713009188:group/SWNL_Site/08szscyi77nbk5dbine98hhr3b"
+      awsApplication = var.app_tag
     }
   }
 }

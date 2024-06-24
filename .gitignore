@@ -6,6 +6,8 @@ terraform.tfstate.backup
 terraform/terraform.tfstate
 terraform/.terraform.tfstate.lock.info
 terraform/.terraform.lock.hcl
+terraform/lambda_function_payload.zip
 .tfvars
 .log
 .vscode
+
