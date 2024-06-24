@@ -27,5 +27,5 @@ jobs:
         uses: appleboy/lambda-action@v0.2.0
         with:
           function_name: ${{ vars.LAMBDA_NAME }}
-          source: lambda/lambda_function.py
+          source: python/lambda_function.py
 
