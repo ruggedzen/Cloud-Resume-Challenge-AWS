@@ -2,8 +2,8 @@ name: Deploy site to S3
 
 on:
   push:
-    paths:
-      - 'site/**'
+    branches:
+      - main
 
 permissions:
   id-token: write   # This is required for requesting the JWT
@@ -25,7 +25,7 @@ jobs:
 
       # Upload a file to AWS s3
       - name:  Copy index.html to s3
-        run: aws s3 sync ./site s3://${{ vars.BUCKET_NAME }}/
+        run: aws s3 sync ./site s3://${{ vars.SITE_BUCKET_NAME }}/
 
   InvalidateCloudFront:
     needs: S3PackageUpload

@@ -7,7 +7,7 @@ resource "aws_iam_openid_connect_provider" "github_oidc" {
 
 #Create github role
 resource "aws_iam_role" "github_oidc_role" {
-  depends_on = [ aws_iam_openid_connect_provider.github_oidc ]
+  depends_on = [aws_iam_openid_connect_provider.github_oidc]
   assume_role_policy = jsonencode({
     Statement = [{
       Action = "sts:AssumeRoleWithWebIdentity"

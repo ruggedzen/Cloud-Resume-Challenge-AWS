@@ -3,8 +3,8 @@ variable "domain_name" {
   type    = string
 }
 variable "bucket_names" {
-  default = [var.domain_name, "terraform_state_swnl"]
-  type = list
+  default = ["sheepwithnolegs.com", "terraform-state-swnl"]
+  type    = list(any)
 }
 variable "cli_profile" {
   default = "swnl_prod"
@@ -24,5 +24,5 @@ variable "func_name" {
 }
 variable "app_tag" {
   default = "arn:aws:resource-groups:us-east-1:339713009188:group/SWNL_Site/08szscyi77nbk5dbine98hhr3b"
-  type = string
+  type    = string
 }

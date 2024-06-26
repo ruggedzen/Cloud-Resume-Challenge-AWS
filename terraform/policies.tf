@@ -9,7 +9,7 @@ data "aws_iam_policy_document" "allow_read_all" {
     actions = ["s3:GetObject"]
 
     resources = [
-      "${aws_s3_bucket.swnl.arn}/*"
+      "${aws_s3_bucket.swnl_buckets[0].arn}/*"
     ]
   }
 }

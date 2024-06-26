@@ -1,6 +1,6 @@
 #Site Bucket Creation
 resource "aws_s3_bucket" "swnl_buckets" {
-  count = length(var.bucket_names)
+  count         = length(var.bucket_names)
   bucket        = var.bucket_names[count.index]
   force_destroy = true
 }

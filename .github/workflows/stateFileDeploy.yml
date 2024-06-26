@@ -2,7 +2,8 @@ name: Deploy state file to S3
 
 on:
   push:
-    "main"
+    branches:
+      - main
 
 permissions:
   id-token: write   # This is required for requesting the JWT
@@ -24,4 +25,4 @@ jobs:
 
       # Upload a file to AWS s3
       - name:  Copy index.html to s3
-        run: aws s3 sync ./terraform/ s3://${{ vars.STATE_BUCKET_NAME }}/
+        run: aws s3 sync ./terraform/terraform.tfstate s3://${{ vars.STATE_BUCKET_NAME }}/
