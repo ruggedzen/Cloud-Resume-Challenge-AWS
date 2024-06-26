@@ -2,6 +2,10 @@ variable "domain_name" {
   default = "sheepwithnolegs.com"
   type    = string
 }
+variable "bucket_names" {
+  default = [var.domain_name, "terraform_state_swnl"]
+  type = list
+}
 variable "cli_profile" {
   default = "swnl_prod"
   type    = string
