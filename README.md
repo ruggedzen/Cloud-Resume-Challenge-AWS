@@ -1,7 +1,27 @@
 # Cloud Resume Challenge-AWS
- Hello! This is my attempt at the Cloud Resume Challenge in AWS. The backend components of the project are still in progress but I anticipate to have them completed soon. Here is a high-level overview of the project so far.
+ Hello! This is my attempt at the Cloud Resume Challenge in AWS. The [Cloud Resume Challenge](https://cloudresumechallenge.dev/docs/the-challenge/aws/) is a project created by Forrest Brazeal to create a resume site that demonstrates the challengers abilities in the AWS cloud, IaC, and CI/CD technologies.  
 
-## Challenge tasks:
+## Architecture
+
+![crc_aws](https://github.com/ruggedzen/Cloud-Resume-Challenge-AWS/assets/28713851/8036b04d-53d1-4f24-a5e1-79d1ce39c44d)
+
+## Services/Tools used:
+- AWS Services:
+    - S3
+    - CloudFront
+    - ACM
+    - Route 53
+    - AWS Organizations
+    - AWS Identity Center
+    - Lambda
+    - DynamoDB
+    - API Gateway
+- IaC
+     - Terraform
+- Code Deployment
+    - Github/Github Actions
+
+ ## Challenge tasks:
 - [x] Certification
   - [x] AWS Certified Cloud Practitioner
   - [x] AWS Certified Solutions Architect - Associate
@@ -24,22 +44,6 @@
   - [x] Front-end
   - [x] Back-end 
 - [ ] Blog Post
-
-## Services/Tools used:
-- AWS Services:
-    - S3
-    - CloudFront
-    - ACM
-    - Route 53
-    - AWS Organizations
-    - AWS Identity Center
-    - Lambda
-    - DynamoDB
-    - API Gateway
-- IaC
-     - Terraform
-- Code Deployment
-    - Github/Github Actions
 
 ---
 - Challenge Site Link: https://cloudresumechallenge.dev/docs/the-challenge/aws/
