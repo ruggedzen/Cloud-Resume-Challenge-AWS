@@ -3,7 +3,7 @@
 
 ## Architecture
 
-![crc_aws](https://github.com/ruggedzen/Cloud-Resume-Challenge-AWS/assets/28713851/8036b04d-53d1-4f24-a5e1-79d1ce39c44d)
+![crc_aws](https://github.com/ruggedzen/Cloud-Resume-Challenge-AWS/assets/28713851/5a6a60c0-5465-4ec5-8344-088efcbcf754)
 
 ## Services/Tools used:
 - AWS Services:
@@ -48,3 +48,4 @@
 ---
 - Challenge Site Link: https://cloudresumechallenge.dev/docs/the-challenge/aws/
 - My Site: https://sheepwithnolegs.com
+![crc_aws](https://github.com/ruggedzen/Cloud-Resume-Challenge-AWS/assets/28713851/7d1915d4-c085-42b3-b0cf-f6e69366a1d5)
