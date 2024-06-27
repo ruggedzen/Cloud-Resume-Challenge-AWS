@@ -48,4 +48,3 @@
 ---
 - Challenge Site Link: https://cloudresumechallenge.dev/docs/the-challenge/aws/
 - My Site: https://sheepwithnolegs.com
-![crc_aws](https://github.com/ruggedzen/Cloud-Resume-Challenge-AWS/assets/28713851/7d1915d4-c085-42b3-b0cf-f6e69366a1d5)
