@@ -5,7 +5,7 @@
 
 ![crc_aws](https://github.com/ruggedzen/Cloud-Resume-Challenge-AWS/assets/28713851/7861019c-9f68-43ff-9746-ae75dcfbfc50)
 
-## Services/Tools used:
+## Services/Tools used
 - AWS Services:
     - S3
     - CloudFront
@@ -21,7 +21,7 @@
 - Code Deployment
     - Github/Github Actions
 
- ## Challenge tasks:
+ ## Challenge tasks
 - [x] Certification
   - [x] AWS Certified Cloud Practitioner
   - [x] AWS Certified Solutions Architect - Associate
@@ -40,7 +40,7 @@
 - [x] Infrastructure as Code (Terraform)
   - [x] Front-end infrastructure
   - [x] Back-end infrastructure (Visitor counter)
-- [x] CI/CD
+- [x] Code deployment
   - [x] Front-end
   - [x] Back-end 
 - [ ] Blog Post
