@@ -1,5 +1,5 @@
 # Cloud Resume Challenge-AWS
- Hello! This is my attempt at the Cloud Resume Challenge in AWS. The [Cloud Resume Challenge](https://cloudresumechallenge.dev/docs/the-challenge/aws/) is a project created by Forrest Brazeal to create a resume site that demonstrates the challengers abilities in the AWS cloud, IaC, and CI/CD technologies.  
+Welcome to my Cloud Resume Challenge AWS repository! 🚀 [This challenge](https://cloudresumechallenge.dev/docs/the-challenge/aws/), created by Forrest Brazeal, is designed to help individuals prepare for and demonstrate their abilities with tools and techniques used in cloud industry roles.
 
 ## Architecture
 
