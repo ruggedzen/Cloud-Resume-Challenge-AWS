@@ -3,7 +3,7 @@
 
 ## Architecture
 
-![crc_aws](https://github.com/ruggedzen/Cloud-Resume-Challenge-AWS/assets/28713851/cdc095d2-4cac-4630-85d9-2415446578ac)
+![crc_aws](https://github.com/ruggedzen/Cloud-Resume-Challenge-AWS/assets/28713851/7861019c-9f68-43ff-9746-ae75dcfbfc50)
 
 ## Services/Tools used:
 - AWS Services:
