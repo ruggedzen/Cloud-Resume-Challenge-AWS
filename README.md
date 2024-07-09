@@ -3,7 +3,7 @@ Welcome to my Cloud Resume Challenge AWS repository! 🚀 [This challenge](https
 
 ## Architecture
 
-![crc_aws](https://github.com/ruggedzen/Cloud-Resume-Challenge-AWS/assets/28713851/7861019c-9f68-43ff-9746-ae75dcfbfc50)
+![crc_aws(1)](https://github.com/ruggedzen/Cloud-Resume-Challenge-AWS/assets/28713851/4f4f2d80-51b1-4f56-9648-22ea30bec5f6)
 
 ## Services/Tools used
 - AWS Services:
