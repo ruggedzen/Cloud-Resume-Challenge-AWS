@@ -38,5 +38,5 @@ jobs:
           role-session-name: githubactionsession
           aws-region: ${{ vars.AWS_REGION }}
 
-      - name: invalidate CloudFront
+      - name: invalidateCloudFront
         run: aws cloudfront create-invalidation --distribution-id ${{ vars.DISTRIBUTION_ID }} --paths '/*'
