@@ -19,7 +19,7 @@ Welcome to my Cloud Resume Challenge AWS repository! 🚀 [This challenge](https
 - IaC
      - Terraform
 - Code Deployment
-    - Github/Github Actions
+    - Github Actions
 
  ## Challenge tasks
 - [x] Certification
