@@ -1,0 +1,31 @@
+name: Deploy Python payload to Lambda
+
+on:
+  push:
+    paths:
+      - 'python/**'
+
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: read    # This is required for actions/checkout
+
+jobs:
+  PythonPackageUpload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: git clone the repository
+        uses: actions/checkout@v4
+
+      - name: configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::339713009188:role/GithubActions-WebIdentity-Role
+          role-session-name: githubactionsession
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: code deploy
+        uses: appleboy/lambda-action@v0.2.0
+        with:
+          function_name: ${{ vars.LAMBDA_NAME }}
+          source: python/lambda_function.py
+
