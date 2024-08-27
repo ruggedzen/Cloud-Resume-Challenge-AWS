@@ -22,4 +22,8 @@ variable "func_name" {
   default = "crc_lambda_test"
   type    = string
 }
+variable "account_id" {
+  default = "381492093988"
+  type    = string
+}
 
