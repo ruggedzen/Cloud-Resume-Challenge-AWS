@@ -1,5 +1,5 @@
 variable "domain_name" {
-  default = "sheepwithnolegs.com"
+  default = "test.sheepwithnolegs.com"
   type    = string
 }
 variable "bucket_names" {
@@ -7,7 +7,7 @@ variable "bucket_names" {
   type    = list(any)
 }
 variable "cli_profile" {
-  default = "swnl_prod"
+  default = "swnl_test"
   type    = string
 }
 variable "aws_region" {
@@ -15,14 +15,11 @@ variable "aws_region" {
   type    = string
 }
 variable "dyn_table" {
-  default = "swnl_stats"
+  default = "swnl_stats_test"
   type    = string
 }
 variable "func_name" {
-  default = "crc_lambda"
+  default = "crc_lambda_test"
   type    = string
 }
-variable "app_tag" {
-  default = "arn:aws:resource-groups:us-east-1:339713009188:group/SWNL_Site/08szscyi77nbk5dbine98hhr3b"
-  type    = string
-}
+

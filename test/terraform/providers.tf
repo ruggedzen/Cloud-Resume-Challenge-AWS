@@ -3,7 +3,7 @@ terraform {
     organization = "sheepwithnolegs"
     
     workspaces {
-      name = "workspace-swnl"
+      name = "workspace-swnl-test"
     }
 }
   required_providers {
@@ -18,9 +18,4 @@ terraform {
 provider "aws" {
   region  = var.aws_region
   profile = var.cli_profile
-  default_tags {
-    tags = {
-      awsApplication = var.app_tag
-    }
-  }
 }
