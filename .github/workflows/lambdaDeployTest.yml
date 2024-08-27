@@ -1,4 +1,4 @@
-name: Deploy Python payload to Lambda
+name: Deploy Python Payload to Lambda in Test
 
 on:
   push:
@@ -27,5 +27,5 @@ jobs:
         uses: appleboy/lambda-action@v0.2.0
         with:
           function_name: ${{ vars.TEST_LAMBDA_NAME }}
-          source: python/lambda_function.py
+          source: test/python/lambda_function.py
 
