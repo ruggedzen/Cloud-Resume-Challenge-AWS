@@ -3,7 +3,7 @@ name: Deploy site to S3
 on:
   push:
     paths:
-      - 'prod/site/**'
+      - 'test/site/**'
 
 permissions:
   id-token: write   # This is required for requesting the JWT
@@ -24,7 +24,7 @@ jobs:
           aws-region: ${{ vars.AWS_REGION }}
           
       - name:  Copy index.html to s3
-        run: aws s3 sync ./site s3://${{ vars.PROD_SITE_BUCKET_NAME }}/
+        run: aws s3 sync ./site s3://${{ vars.TEST_SITE_BUCKET_NAME }}/
 
   InvalidateCloudFront:
     needs: S3PackageUpload
@@ -38,4 +38,4 @@ jobs:
           aws-region: ${{ vars.AWS_REGION }}
 
       - name: invalidateCloudFront
-        run: aws cloudfront create-invalidation --distribution-id ${{ vars.PROD_DISTRIBUTION_ID }} --paths '/*'
+        run: aws cloudfront create-invalidation --distribution-id ${{ vars.TEST_DISTRIBUTION_ID }} --paths '/*'

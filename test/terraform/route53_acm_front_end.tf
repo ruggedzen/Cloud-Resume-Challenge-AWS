@@ -1,9 +1,28 @@
-#R53 Zone
-resource "aws_route53_zone" "swnl_zone" {
+#R53 Test Zone
+resource "aws_route53_zone" "test_swnl_zone" {
   name = var.domain_name
 }
+#R53 Prod Zone
+data "aws_route53_zone" "prod_swnl_zone" {
+  provider     = aws.prod
+  name         = "sheepwithnolegs.com."
+  private_zone = false
+}
 
-#Get cert from ACM for root domain
+#Create NS Record for Test NS in Prod R53
+resource "aws_route53_record" "prod_ns_record" {
+  provider = aws.prod
+
+  zone_id = data.aws_route53_zone.prod_swnl_zone.zone_id
+  name    = var.domain_name
+  type    = "NS"
+  ttl     = "30"
+  records = aws_route53_zone.test_swnl_zone.name_servers
+
+  depends_on = [aws_route53_zone.test_swnl_zone]
+}
+
+#Get cert from ACM for test domain
 resource "aws_acm_certificate" "swnl_cert" {
   domain_name       = var.domain_name
   validation_method = "DNS"
@@ -29,18 +48,20 @@ resource "aws_route53_record" "swnl_cert_cname" {
   records         = [each.value.record]
   ttl             = 60
   type            = each.value.type
-  zone_id         = aws_route53_zone.swnl_zone.zone_id
+  zone_id         = aws_route53_zone.test_swnl_zone.zone_id
 }
 
 #Validate ACM Cert
 resource "aws_acm_certificate_validation" "swnl_cert_val" {
   certificate_arn         = aws_acm_certificate.swnl_cert.arn
   validation_record_fqdns = [for record in aws_route53_record.swnl_cert_cname : record.fqdn]
+
+  depends_on = [aws_route53_record.prod_ns_record]
 }
 
 #A record for CloudFront distro 
 resource "aws_route53_record" "swnl_cf_alias" {
-  zone_id = aws_route53_zone.swnl_zone.zone_id
+  zone_id = aws_route53_zone.test_swnl_zone.zone_id
   name    = var.domain_name
   type    = "A"
 

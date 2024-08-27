@@ -3,12 +3,12 @@ variable "domain_name" {
   type    = string
 }
 variable "bucket_names" {
-  default = ["sheepwithnolegs.com", "terraform-state-swnl"]
+  default = ["test.sheepwithnolegs.com", "test.terraform-state-swnl"]
   type    = list(any)
 }
 variable "cli_profile" {
-  default = "swnl_test"
-  type    = string
+  default = ["swnl_test", "swnl_prod"]
+  type    = list(any)
 }
 variable "aws_region" {
   default = "us-east-1"

@@ -3,7 +3,7 @@ name: Deploy Python payload to Lambda
 on:
   push:
     paths:
-      - 'prod/python/**'
+      - 'test/python/**'
 
 permissions:
   id-token: write   # This is required for requesting the JWT
@@ -26,6 +26,6 @@ jobs:
       - name: code deploy
         uses: appleboy/lambda-action@v0.2.0
         with:
-          function_name: ${{ vars.PROD_LAMBDA_NAME }}
+          function_name: ${{ vars.TEST_LAMBDA_NAME }}
           source: python/lambda_function.py
 
