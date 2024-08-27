@@ -53,7 +53,6 @@ data "aws_iam_policy_document" "oidc_role" {
 #Lambda policy for exectution role
 resource "aws_iam_policy" "swnl_lambda_policy" {
   name = "DynamoDBLambdaAccess"
-
   policy = jsonencode({
     "Version" : "2012-10-17",
     "Statement" : [
