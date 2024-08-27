@@ -2,8 +2,8 @@ name: Deploy Python payload to Lambda
 
 on:
   push:
-    paths:
-      - 'test/python/**'
+    branches:
+      - main
 
 permissions:
   id-token: write   # This is required for requesting the JWT
