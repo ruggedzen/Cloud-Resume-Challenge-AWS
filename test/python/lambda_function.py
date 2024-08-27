@@ -1,7 +1,7 @@
 import boto3, json
 
 dynamodb = boto3.client("dynamodb")
-table = "swnl_stats"
+table = "swnl_stats_test"
 
 def lambda_handler(event: any, context: any):
     response = dynamodb.update_item(
