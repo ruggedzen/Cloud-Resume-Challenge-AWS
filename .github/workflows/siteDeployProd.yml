@@ -24,7 +24,7 @@ jobs:
           aws-region: ${{ vars.AWS_REGION }}
           
       - name:  Copy index.html to s3
-        run: aws s3 sync ./site s3://${{ vars.PROD_SITE_BUCKET_NAME }}/
+        run: aws s3 sync ./prod/site s3://${{ vars.PROD_SITE_BUCKET_NAME }}/
 
   InvalidateCloudFront:
     needs: S3PackageUpload
