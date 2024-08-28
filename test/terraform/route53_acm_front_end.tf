@@ -30,7 +30,6 @@ resource "aws_acm_certificate" "swnl_cert" {
   lifecycle {
     create_before_destroy = true
   }
-
 }
 
 #Create CNAME to auth ACM provided cert
