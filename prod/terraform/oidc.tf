@@ -11,5 +11,5 @@ resource "aws_iam_role" "github_oidc_role" {
   managed_policy_arns  = ["arn:aws:iam::aws:policy/AWSLambda_FullAccess", "arn:aws:iam::aws:policy/AmazonS3FullAccess", "arn:aws:iam::aws:policy/CloudFrontFullAccess"]
   max_session_duration = 3600
   path                 = "/"
-  depends_on = [aws_iam_openid_connect_provider.github_oidc]
+  depends_on           = [aws_iam_openid_connect_provider.github_oidc]
 }

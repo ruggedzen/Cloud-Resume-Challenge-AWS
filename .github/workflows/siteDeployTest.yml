@@ -2,8 +2,8 @@ name: Deploy Site to S3 in Test
 
 on:
   push:
-    branches:
-      - main
+    paths:
+      - 'test/**'
 
 permissions:
   id-token: write   # This is required for requesting the JWT

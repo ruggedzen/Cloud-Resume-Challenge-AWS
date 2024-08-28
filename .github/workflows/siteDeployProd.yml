@@ -3,7 +3,7 @@ name: Deploy Site to S3 in Prod
 on:
   push:
     paths:
-      - 'prod/site/**'
+      - 'prod/**'
 
 permissions:
   id-token: write   # This is required for requesting the JWT
