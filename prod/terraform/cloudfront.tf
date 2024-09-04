@@ -3,6 +3,7 @@ resource "aws_cloudfront_distribution" "swnl_cdn" {
   origin {
     domain_name = aws_s3_bucket.swnl_buckets[0].bucket_regional_domain_name
     origin_id   = var.domain_name
+    origin_access_control_id = aws_cloudfront_origin_access_control.swnl_oac.id
   }
 
   enabled             = true
@@ -36,4 +37,12 @@ resource "aws_cloudfront_distribution" "swnl_cdn" {
   depends_on = [
     aws_acm_certificate.swnl_cert
   ]
+}
+
+#OAC policy
+resource "aws_cloudfront_origin_access_control" "swnl_oac" {
+  name                              = "swnl_oac"
+  origin_access_control_origin_type = "s3"
+  signing_behavior                  = "always"
+  signing_protocol                  = "sigv4"
 }

@@ -1,9 +1,10 @@
-#Bucket policy - Read-only for all
-data "aws_iam_policy_document" "allow_read_all" {
+
+#Bucket policy - Allow OAC from CF
+data "aws_iam_policy_document" "oac_bucket_policy" {
   statement {
     principals {
-      type        = "AWS"
-      identifiers = ["*"]
+      type        = "Service"
+      identifiers = ["cloudfront.amazonaws.com"]
     }
 
     actions = ["s3:GetObject"]
@@ -11,8 +12,14 @@ data "aws_iam_policy_document" "allow_read_all" {
     resources = [
       "${aws_s3_bucket.swnl_buckets[0].arn}/*"
     ]
+    condition {
+      test     = "StringEquals"
+      variable = "AWS:SourceArn"
+      values   = [aws_cloudfront_distribution.swnl_cdn.arn]
+    }
   }
 }
+
 #Execution role policy
 data "aws_iam_policy_document" "lambda_assume_role" {
   statement {
