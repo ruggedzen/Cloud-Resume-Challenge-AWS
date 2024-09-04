@@ -26,5 +26,5 @@ resource "aws_s3_bucket_public_access_block" "enable_pub_access" {
 #Apply bucket policy
 resource "aws_s3_bucket_policy" "allow_read_all" {
   bucket = aws_s3_bucket.swnl_buckets[0].id
-  policy = data.aws_iam_policy_document.allow_read_all.json
+  policy = data.aws_iam_policy_document.oac_bucket_policy.json
 }

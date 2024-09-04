@@ -37,3 +37,10 @@ resource "aws_cloudfront_distribution" "swnl_cdn" {
     aws_acm_certificate.swnl_cert
   ]
 }
+
+resource "aws_cloudfront_origin_access_control" "test_swnl_oac" {
+  name                              = "test_swnl_oac"
+  origin_access_control_origin_type = "s3"
+  signing_behavior                  = "always"
+  signing_protocol                  = "sigv4"
+}
