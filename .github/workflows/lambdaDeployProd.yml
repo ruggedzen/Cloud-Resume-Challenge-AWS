@@ -4,6 +4,16 @@ on:
   push:
     paths:
       - 'prod/python/**'
+  workflow_dispatch:
+    inputs:
+      lambda_function_name:
+        description: 'Name of the Lambda function to deploy'
+        required: true
+        default: ${{ vars.TEST_LAMBDA_NAME }}
+      source_file:
+        description: 'Path to the source file/directory'
+        required: true
+        default: './test/python/lambda_function.py'
 
 permissions:
   id-token: write   # This is required for requesting the JWT
