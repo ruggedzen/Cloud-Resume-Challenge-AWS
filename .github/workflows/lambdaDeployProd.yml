@@ -6,10 +6,6 @@ on:
       - 'prod/python/**'
   workflow_dispatch:
     inputs:
-      lambda_function_name:
-        description: 'Name of the Lambda function to deploy'
-        required: true
-        default: ${{ vars.TEST_LAMBDA_NAME }}
       source_file:
         description: 'Path to the source file/directory'
         required: true
