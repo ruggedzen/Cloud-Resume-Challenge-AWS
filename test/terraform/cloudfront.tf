@@ -1,8 +1,8 @@
 #CloudFront Distro
 resource "aws_cloudfront_distribution" "swnl_cdn" {
   origin {
-    domain_name = aws_s3_bucket.swnl_buckets[0].bucket_regional_domain_name
-    origin_id   = var.domain_name
+    domain_name              = aws_s3_bucket.swnl_buckets[0].bucket_regional_domain_name
+    origin_id                = var.domain_name
     origin_access_control_id = aws_cloudfront_origin_access_control.test_swnl_oac.id
   }
 
